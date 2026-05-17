@@ -59,7 +59,7 @@ func main() {
 
 	//admin Only routes
 	admin := api.Group("/", middleware.RequireAdmin)
-	admin.Get("/profile", handlers.GetAllUsers)
+	admin.Get("/users", handlers.GetAllUsers)
 
 	app.Get("api/ping", func(c *fiber.Ctx) error {
 		return c.SendString("pong")

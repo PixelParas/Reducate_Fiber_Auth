@@ -59,7 +59,7 @@ func RequireAuth(c *fiber.Ctx) error {
 	// Extract the user ID
 	// Important: JSON numbers are always decoded as float64 by default in Go.
 	// We must assert it as float64 first, then cast it to uint.
-	idFloat, ok := claims["id"].(float64) // Make sure "id" matches the key you used when creating the token!
+	idFloat, ok := claims["user_id"].(float64) // Make sure "user_id" matches the key you used when creating the token!
 	if !ok {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 			"error": "Invalid user ID in token",
